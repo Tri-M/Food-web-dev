@@ -3,6 +3,8 @@ import {motion} from "framer-motion";
 import {MdFastfood,MdCloudUpload,MdDelete,MdFoodBank,MdAttachMoney} from "react-icons/md";
 import { categories } from "../utils/data";
 import Loader from "./Loader";
+import {deleteObject, getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
+import { storage } from "../firebase.config";
 const CreateContainer = () => {
 
   const [title, setTitle] = useState("");
@@ -14,9 +16,56 @@ const CreateContainer = () => {
   const [msg,setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [ImageAsset, setImageAsset] = useState(null);
-const uploadImage=()=>{};
-const deleteImage=()=>{};
+const uploadImage=(e)=>{
+  setIsLoading(true);
+  const imageFile=e.target.files[0];
+  //console.log(imageFile);
+  const storageRef=ref(storage,`Images/${Date.now()}-${imageFile.name}`)
+  const uploadTask=uploadBytesResumable(storageRef,imageFile);
+
+  uploadTask.on('state_changed',(snapshot)=>{
+    const uploadProgress=(snapshot.bytesTransferred /snapshot.totalBytes)*100;
+  },
+  (error)=>{
+    console.log(error);
+    setFields(true);
+    setMsg('Error occurred while uploading. Please Try Again.😕');
+    setAlertStatus('danger')
+    setTimeout(()=>{
+      setFields(false)
+    },4000);
+  },
+  ()=>{
+    getDownloadURL(uploadTask.snapshot.ref).then(downloadURL=>{
+      setImageAsset(downloadURL);
+      setIsLoading(false)
+      setFields(true);
+      setMsg('Image uploaded successfully 😃');
+      setAlertStatus('success')
+      setTimeout(() => {
+        setFields(false)
+      },2000);
+    })
+  })
+};
+const deleteImage=()=>{
+  setIsLoading(false);
+  const deleteRef=ref(storage,ImageAsset);
+  deleteObject(deleteRef).then(()=>
+  {
+    setImageAsset(null)
+    setIsLoading(false)
+    setFields(true);
+    setMsg('Image deleted successfully');
+    setAlertStatus("success");
+    setTimeout(() => {
+      setFields(false)
+    },2000)
+  })
+
+};
 const saveDetails=()=>{};
+
   return (
     <div className="w-full min-h-screen h-auto flex items-center justify-center">
     <div className="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
