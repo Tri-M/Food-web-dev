@@ -5,6 +5,7 @@ import { categories } from "../utils/data";
 import Loader from "./Loader";
 import {deleteObject, getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
 import { storage } from "../firebase.config";
+import { saveItem } from "../utils/firebaseFunctions";
 const CreateContainer = () => {
 
   const [title, setTitle] = useState("");
@@ -48,6 +49,7 @@ const uploadImage=(e)=>{
     })
   })
 };
+
 const deleteImage=()=>{
   setIsLoading(false);
   const deleteRef=ref(storage,ImageAsset);
@@ -64,7 +66,60 @@ const deleteImage=()=>{
   })
 
 };
-const saveDetails=()=>{};
+const saveDetails=()=>{
+  setIsLoading(true);
+  try {
+    if((!title || !calories || !ImageAsset || !price || !category))
+    {
+      setFields(true);
+      setMsg("Fill all fields !!!");
+      setAlertStatus("danger");
+      setTimeout(() => {
+      setFields(false);
+      setIsLoading(false);
+    },2000);
+    }
+    else
+    {
+      const data={
+        id: `${Date.now()}`,
+        title: title,
+        imageURL:ImageAsset,
+        category: category,
+        calories:calories,
+        qty:1,
+        price:price,
+      }
+      saveItem(data)
+      setImageAsset(null)
+    setIsLoading(false)
+    setFields(true);
+    setMsg('Data uploaded successfully');
+    clearData();
+    setAlertStatus("success");
+    setTimeout(() => {
+      setFields(false);
+    },4000)
+    }
+  } catch (error) {
+    console.log(error);
+    setFields(true);
+    setMsg("error while uploading : try again");
+    setAlertStatus("danger");
+    setTimeout(() => {
+      setFields(false);
+      setIsLoading(false);
+    },2000);
+  }
+};
+
+const clearData=()=>{
+  setTitle("");
+  setImageAsset(null);
+  setCalories("");
+  setPrice("");
+  setCalories("Select category");
+};
 
   return (
     <div className="w-full min-h-screen h-auto flex items-center justify-center">
