@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from "framer-motion";
 import HomeContainer from "./HomeContainer";
 import {MdChevronLeft,MdChevronRight} from "react-icons/md";
+import RowContainer from './RowContainer';
 const MainContainer = () => {
   return (
     <div className="w-full h-auto flex flex-col items-center overflow-x-hidden justify-center">
@@ -20,6 +21,7 @@ const MainContainer = () => {
           </motion.div>
           </div>
         </div>
+        <RowContainer flag={true}/>
       </section>
     </div>
   );
