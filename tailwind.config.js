@@ -50,7 +50,8 @@ module.exports = {
         cartTotal: "#343739",
         cartNumBg: "#FF0000",
         cardOverlay:'rgba(256,256,256,0.4)',
-        lighttextGray:"#9ca0ab"
+        lighttextGray:"#9ca0ab",
+        rowBg:"#EEF6FA"
       },
       screens: {
         sm: "640px",

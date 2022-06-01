@@ -190,7 +190,7 @@ const fetchData = async()=>{
   ):(
       <>
       <div className="relative h-full">
-        <img src={ImageAsset} alt="uploaded image" className="w-full h-full object-cover" />
+        <img src={ImageAsset} alt="uploaded" className="w-full h-full object-cover" />
         <button type="button" className="absolute bottom-3 right-3 p-3 rounded-full bg-blue-500 text-xl cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
         onClick={deleteImage}>
           <MdDelete className="text-white"/>
