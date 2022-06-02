@@ -13,6 +13,8 @@ Refer : https://tailwindcss.com/docs/guides/create-react-app
 Install required packages using :
 npm install firebase framer-motion react-icons react-router-dom
 
+for scrollbar : npm i tailwind-scrollbar
+
 If you are using yarn, 
 use :
 yarn add firebase framer-motion react-icons react-router-dom
