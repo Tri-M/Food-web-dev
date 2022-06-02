@@ -1,223 +1,24 @@
-import React, {useState } from "react";
-import {motion} from "framer-motion";
-import {MdFastfood,MdCloudUpload,MdDelete,MdFoodBank,MdAttachMoney} from "react-icons/md";
-import { categories } from "../utils/data";
-import Loader from "./Loader";
-import {deleteObject, getDownloadURL, ref, uploadBytesResumable} from "firebase/storage";
-import { storage } from "../firebase.config";
-import { getAllFoodItems,saveItem } from "../utils/firebaseFunctions";
-import { useStateValue } from "../context/StateProvider";
-import { actionType } from "../context/reducer";
+import React from "react";
 
-
-const CreateContainer = () => {
-
-  const [title, setTitle] = useState("");
-  const [calories, setCalories] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState(null);
-  const [fields, setFields] = useState(false);
-  const [alertStatus, setAlertStatus] = useState("danger");
-  const [msg,setMsg] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [ImageAsset, setImageAsset] = useState(null);
-  const [{foodItems},dispatch]=useStateValue();
-
-const uploadImage=(e)=>{
-  setIsLoading(true);
-  const imageFile=e.target.files[0];
-  //console.log(imageFile);
-  const storageRef=ref(storage,`Images/${Date.now()}-${imageFile.name}`)
-  const uploadTask=uploadBytesResumable(storageRef,imageFile);
-
-  uploadTask.on('state_changed',(snapshot)=>{
-    const uploadProgress=(snapshot.bytesTransferred /snapshot.totalBytes)*100;
-  },
-  (error)=>{
-    console.log(error);
-    setFields(true);
-    setMsg('Error occurred while uploading. Please Try Again.😕');
-    setAlertStatus('danger')
-    setTimeout(()=>{
-      setFields(false)
-    },4000);
-  },
-  ()=>{
-    getDownloadURL(uploadTask.snapshot.ref).then(downloadURL=>{
-      setImageAsset(downloadURL);
-      setIsLoading(false)
-      setFields(true);
-      setMsg('Image uploaded successfully 😃');
-      setAlertStatus('success')
-      setTimeout(() => {
-        setFields(false)
-      },2000);
-    })
-  })
-};
-
-const deleteImage=()=>{
-  setIsLoading(false);
-  const deleteRef=ref(storage,ImageAsset);
-  deleteObject(deleteRef).then(()=>
-  {
-    setImageAsset(null)
-    setIsLoading(false)
-    setFields(true);
-    setMsg('Image deleted successfully');
-    setAlertStatus("success");
-    setTimeout(() => {
-      setFields(false)
-    },2000)
-  })
-
-};
-const saveDetails=()=>{
-  setIsLoading(true);
-  try {
-    if((!title || !calories || !ImageAsset || !price || !category))
-    {
-      setFields(true);
-      setMsg("Fill all fields !!!");
-      setAlertStatus("danger");
-      setTimeout(() => {
-      setFields(false);
-      setIsLoading(false);
-    },2000);
-    }
-    else
-    {
-      const data={
-        id: `${Date.now()}`,
-        title: title,
-        imageURL:ImageAsset,
-        category: category,
-        calories:calories,
-        qty:1,
-        price:price,
-      }
-      saveItem(data)
-      setImageAsset(null)
-    setIsLoading(false)
-    setFields(true);
-    setMsg('Data uploaded successfully');
-    clearData();
-    setAlertStatus("success");
-    setTimeout(() => {
-      setFields(false);
-    },4000)
-    }
-  } catch (error) {
-    console.log(error);
-    setFields(true);
-    setMsg("error while uploading : try again");
-    setAlertStatus("danger");
-    setTimeout(() => {
-      setFields(false);
-      setIsLoading(false);
-    },2000);
-  }
-};
-
-fetchData();
-
-const clearData=()=>{
-  setTitle("");
-  setImageAsset(null);
-  setCalories("");
-  setPrice("");
-  setCalories("Select category");
-};
-
-const fetchData = async()=>{
-  await getAllFoodItems().then(data=>{
-    //console.log(data);
-    dispatch({
-      type:actionType.SET_FOOD_ITEMS,
-      foodItems:data
-    })
-  });
-};
-
-
+const Loader = () => {
   return (
-    <div className="w-full min-h-screen h-auto flex items-center justify-center">
-    <div className="w-[90%] md:w-[75%] border border-gray-300 rounded-lg p-4 flex flex-col items-center justify-center gap-4">
-      {
-        fields && (
-          <motion.p 
-          initial={{opacity:0}}
-          animate={{opacity:1}}
-          exit={{opacity:0}}
-          className={`w-full p-2 rounded-lg text-center text-lg font-semibold 
-          ${alertStatus ==='danger' ? 'bg-red-400 text-red-800' : 'bg-emerald-400 text-emerald-800'
-          }
-        }`}>
-            {msg}
-          </motion.p>
-        )
-      }
-
-    <div className="w-full py-2 border-b border-gray-200 flex items-center gap-2">
-      <MdFastfood className="text-xl text-gray-700"/>
-      <input type="text" required value={title} onChange={(e)=>setTitle(e.target.value)} placeholder="Enter title" className="w-full h-full text-lg bg-transparent font-semibold outline-none border-none placeholder:text-gray-400 text-textColor"/>
-    </div>
-      <div className="w-full">
-      <select onChange={(e)=>setCategory(e.target.value)} className="outline-none w-full text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer">
-        <option value="other" className="bg-white">
-          Select Category
-        </option>
-        {categories && categories.map(item =>(
-          <option key={item.id} className="text-base border-0 outline-none capitalize bg-white text-headingColor" value={item.urlParamName} >
-
-            {item.name}
-          </option>
-        ))}
-
-      </select>
-      </div>
-      <div className="group flex justify-center items-center flex-col border-2 border-dotted border-gray-300 w-full h-225 md:h-420 cursor-pointer rounded-lg">
-      {isLoading ? (<Loader/>):(<>
-      {!ImageAsset ? (<>
-      <label className="w-full h-full flex flex-col items-center justify-center cursor-pointer">
-        <div className="w-full h-full flex flex-col items-center justify-center gap-2">
-        <MdCloudUpload className="text-gray-500 text-3xl hover:text-gray-700"/>
-        <p className="text-gray-500 hover:text-gray-700">Click here to upload</p>
-        </div>
-        <input type="file" name="uploadImage" accept="image/*" onChange={uploadImage} className="w-0 h-0"/>
-      </label>
-      </>
-  ):(
-      <>
-      <div className="relative h-full">
-        <img src={ImageAsset} alt="uploaded" className="w-full h-full object-cover" />
-        <button type="button" className="absolute bottom-3 right-3 p-3 rounded-full bg-blue-500 text-xl cursor-pointer outline-none hover:shadow-md duration-500 transition-all ease-in-out"
-        onClick={deleteImage}>
-          <MdDelete className="text-white"/>
-
-        </button>
-      </div>
-      </>
-  )}
-  </>
-  )}
-  </div>
-  <div className="w-full flex flex-col md:flex-row items-center gap-3">
-    <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-    <MdFoodBank className="text-gray-700 text-2xl"/>
-    <input type="text" required value={calories} onChange={(e)=>setCalories(e.target.value)}
-    placeholder="Calories" className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"/>
-    </div>
-
-    <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
-    <MdAttachMoney className="text-gray-700 text-2xl"/>
-    <input type="text" required value={price} onChange={(e)=>setPrice(e.target.value)}placeholder="Price" className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"/>
-    </div>
-  </div>
-    <div className="flex items-center w-full">
-    <button type="button" className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-blue-500 px-12 py-2 rounded-lg text-lg text-white font-semibold" onClick={saveDetails}>Save</button>
-    </div>
-
-  </div></div>);
+    <svg
+      role="status"
+      className="inline mr-2 w-10 h-10 text-gray-200 animate-spin dark:text-gray-300 fill-emerald-500"
+      viewBox="0 0 100 101"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+        fill="currentColor"
+      />
+      <path
+        d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+        fill="currentFill"
+      />
+    </svg>
+  );
 };
-export default CreateContainer;
+
+export default Loader;
