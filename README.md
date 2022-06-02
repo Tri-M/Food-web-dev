@@ -1,3 +1,9 @@
+Part of Course Code : 20XW48
+Food website with add to cart and delivery options.
+Firebase used for database
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
