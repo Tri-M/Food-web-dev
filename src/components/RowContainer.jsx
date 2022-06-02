@@ -16,7 +16,7 @@ const RowContainer = ({flag,data,scrollValue}) => {
         flag ? "overflow-x-scroll scrollbar-none":"overflow-x-hidden flex-wrap"}`}>
        {
            data && data.map((item)=>(
-            <div key={item?.id} className="w-300 min-w-[300px] md:w-340 md:min-w-[340px] h-auto bg-gray-100 rounded-lg p-2 my-12  backdrop-blur-lg hover:drop-shadow-2xl">
+            <div key={item?.id} className="w-300 h-[220px]min-w-[300px] md:w-340 md:min-w-[340px] bg-gray-100 rounded-lg p-2 my-12  backdrop-blur-lg hover:drop-shadow-2xl flex flex-col items-center justify-between">
 
             <div className="w-full flex items-center justify-between">
 

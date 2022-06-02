@@ -4,6 +4,7 @@ import HomeContainer from "./HomeContainer";
 import {MdChevronLeft,MdChevronRight} from "react-icons/md";
 import RowContainer from './RowContainer';
 import {useStateValue} from "../context/StateProvider";
+import MenuContainer from './MenuContainer';
 //import {ref} from "firebase/storage";
 
 const MainContainer = () => {
@@ -34,6 +35,9 @@ const MainContainer = () => {
         scrollValue={scrollValue}
         flag={true} data={foodItems?.filter((n)=> n.category==="fruits")}/>
       </section>
+      
+      <MenuContainer/>
+      
     </div>
   );
 };
