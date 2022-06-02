@@ -49,7 +49,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
                 whileHover={{ scale: 1.2 }}
               >
                 <img
-                  src={item.imageURL}
+                  src={item?.imageURL}
                   alt=""
                   className="w-full h-full object-contain"
                 />
