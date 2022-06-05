@@ -21,6 +21,7 @@ const MenuContainer = () => {
           {categories &&
             categories.map((category) => (
               <motion.div
+                whileHover = {{scale: 1.3}}
                 whileTap={{ scale: 0.75 }}
                 key={category.id}
                 className={`group ${
