@@ -7,6 +7,7 @@ import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
 import EmptyCart from "../img/emptyCart.svg";
 import CartItem from "./CartItem";
+//import Header from "./Header";
 
 const CartContainer = () => {
   const [{ cartShow, cartItems, user }, dispatch] = useStateValue();
@@ -109,6 +110,7 @@ const CartContainer = () => {
               <motion.button
                 whileTap={{ scale: 0.8 }}
                 type="button"
+                //onClick=""
                 className="w-full p-2 rounded-full bg-gradient-to-tr from-blue-400 to-blue-600 text-gray-50 text-lg my-2 hover:shadow-lg"
               >
                 Login to check out
