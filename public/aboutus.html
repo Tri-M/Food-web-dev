@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About us</title>
 </head>
 <style>
     body {
@@ -31,15 +31,16 @@ html {
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 8px;
-  background-color: aliceblue;
+  background-color: gainsboro;
   color: black;
   padding-top: 10px;
-  transition: 3s;
+  transition: 2s;
 }
 
 .card:hover {
+  transform: scale(1.05);
   box-shadow: 0 0 10px 10px lightblue;
-  background-color: rgb(0, 42, 91);
+  background-color: rgb(0, 50, 106);
   color: white;
 }
 
@@ -69,12 +70,12 @@ html {
   outline: 0;
   display: inline-block;
   padding: 8px;
-  background-color: rgb(0, 0, 61);
+  background-color: rgb(0, 0, 113);
   color: white;
+  width: 50%;
   text-align: center;
   font-weight: bold;
   cursor: pointer;
-  width: 100%;
 }
 
 .button:hover {
@@ -87,6 +88,30 @@ html {
     display: flex;
     justify-content: center;
 }
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 
 @media screen and (max-width: 650px) {
   .column {
@@ -102,7 +127,7 @@ html {
         <p>Resize the browser window to see that this page is responsive by the way.</p>
       </div>
       
-      <h2 style="text-align:center">Our Team</h2>
+      <center><h2 class="hover-underline-animation">Our Team</h2></center>
       <div class="row">
         <div class="column">
           <div class="card">
@@ -112,7 +137,7 @@ html {
               <p class="title">A Softie</p>
               <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
               <p>20pw01@psgtech.ac.in</p>
-              <p><button class="button"><a style="text-decoration: none; color: white;" href="https://github.com/20pw01-Abishek">Contact</a></button></p>
+              <center><p><button class="button"><a style="text-decoration: none; color: white;" href="https://github.com/20pw01-Abishek">Contact</a></button></p></center>
             </div>
           </div>
         </div>
@@ -125,7 +150,7 @@ html {
               <p class="title">Also a softie</p>
               <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
               <p>20pw39@gmail.com</p>
-              <p><button class="button" ><a style="text-decoration: none; color: white;" href="https://github.com/tri-m">Contact</a></button></p>
+              <center><p><button class="button" ><a style="text-decoration: none; color: white;" href="https://github.com/tri-m">Contact</a></button></p></center>
             </div>
           </div>
         </div>
