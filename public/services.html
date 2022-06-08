@@ -10,17 +10,18 @@
   </head>
 
   <style>
-      /* #243238
- #404044
- #D50000
-*/
-
 
 body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    border: 0;
+    background: none;
+    -webkit-appearance: none;
 }
 
 .container{
@@ -142,14 +143,16 @@ hr{
 .box-red{
   background-color:#7ec7f1;
 }
+
   </style>
 
   <body>
     <div class="container">
         <div class="about-section">
-            <h1>Services</h1>
-            <p>We offer you pretty much everything.</p>
-          </div>
+          <h1>Services</h1>
+          <p>We offer you pretty much everything.</p>
+          <button onclick="showMap()">Hello</button>
+        </div>
           <br><br><br>
       <div class="main-box">
         <div class="box box-grey">
@@ -181,10 +184,24 @@ hr{
           <p>Preparing food in bulk is our jam.</p>
           <a href="#">Read More</a>
         </div>
-
+        <div>
+        <h2>Our branches@</h2>
+          <div class="box box-red" id="ek">
+            <div></div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1857162154984!2d76.99993861480299!3d11.024688692153317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1654662099216!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          
+          <div class="box box-red" id="ek">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62658.61205187147!2d76.97263665468098!3d11.026375414006537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582ef9523359%3A0xa1ebf8112c5c931a!2sPsg%20Institute%20Of%20Technology%20And%20Applied%20Research!5e0!3m2!1sen!2sin!4v1654685618509!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
       </div>
-
     </div>
-    
+    <script>
+      document.getElementById("ek").style.display="none";
+      function showMap() {
+        document.getElementById("ek").style.display="inline-block";
+      }
+    </script>
   </body>
 </html>
