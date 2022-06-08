@@ -31,9 +31,9 @@ const MainContainer = () => {
               onClick={() => {
                 if (directionChange) {
                   setDirectionChange(false);
-                  setScrollValue(-30);
+                  setScrollValue(-200);
                 } else {
-                  setScrollValue(scrollValue - (30));
+                  setScrollValue(scrollValue - (200));
                 }
               }}
             >
@@ -45,9 +45,9 @@ const MainContainer = () => {
               onClick={() => {
                 if (!directionChange) {
                   setDirectionChange(true);
-                  setScrollValue(0 + 30);
+                  setScrollValue(0 + 200);
                 } else {
-                  setScrollValue(scrollValue + (30));
+                  setScrollValue(scrollValue + (200));
                 }
               }}
             >
