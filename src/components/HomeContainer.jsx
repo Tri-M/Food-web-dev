@@ -31,10 +31,7 @@ const HomeContainer = () => {
         </p>
 
         <p className="text-base text-textColor text-center md:text-left md:w-[80%]">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minima velit
-          eaque fugit distinctio est nam voluptatum architecto, porro iusto
-          deserunt recusandae ipsa minus eos sunt, dolores illo repellat facere
-          suscipit!
+          FoodEasy is perhaps one of the emerging food outlets and eateries in Tamilnadu. We offer a variety of products and food items at nominal rates. We are also very much heath conscious and all the dishes are prepared with much care and love. The fruits that you see are grown in our own farm in an organic way. So, why wait? We are here to deliver everything at your door step !!!
         </p>
 
         <button
