@@ -8,75 +8,114 @@
     <title>About us</title>
 </head>
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  position: fixed;
-  width: 100%;
-}
+    body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-x: hidden;
+    }
 
-html {
-  box-sizing: border-box;
-}
-
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-.column {
-  float: left;
-  width: 25%;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.about-section {
-  padding: 5px;
+    .about-section {
+      padding: 5px;
       text-align: center;
       margin: 0;
       width: 100%;
-      background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
+      background-image: linear-gradient( rgb(90, 159, 238),rgb(0, 56, 84));
       color: white;
-}
+      box-shadow: 0 5px 10px rgb(0, 56, 84);
+    }
 
-.container {
-  padding: 0 16px;
-}
+    .main-box{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2%;
+      
+    }
 
-.container::after, .row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+    .box{
+      width: 300px;
+      height: 400px;
+      margin: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+      color: white;
+      background-color: rgb(0, 56, 84);
+      border-radius: 5%;
+      font-weight: 500;
+      transition: 0.75s;
+    }
 
-.button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  background-color: rgb(0, 0, 113);
-  color: white;
-  width: 50%;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .box img{
+      border-radius: 100%;
+    }
 
-.button:hover {
-  color: black;
-  font-weight: bold;
-  background-color: rgb(84, 172, 255);
-}
+    .box:hover{
+      transform: scale(1.05);
+      background-color: rgb(24, 143, 203);
+      color: #000;
+      font-weight: 500;
+      box-shadow: 0 0 20px rgb(0, 56, 84) ;
+    }
 
-.row {
-    display: flex;
-    justify-content: center;
-}
+    .box:hover hr {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      display: block;
+      width: 70%;
+      border: 1px solid #000;
+    }
 
-.hover-underline-animation {
+    .box:hover a {
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color:#003b5d ;
+      padding: 10px 25px;
+      border-radius: 25px;
+      margin-top: 10px;
+      display: inline-block;
+      font-weight: 600 ;
+    }
+
+    hr{
+      margin-top: 15px;
+      margin-bottom: 15px;
+      display: block;
+      width: 70%;
+      border: 1px solid rgb(182, 208, 255);
+      transition: 0.75s;
+    }
+
+    button {
+        border: 0;
+        background: none;
+        -webkit-appearance: none;
+    }
+
+    .box a{
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color:#7ec7f1 ;
+      padding: 10px 25px;
+      border-radius: 25px;
+      margin-top: 10px;
+      display: inline-block;
+      font-weight: 600 ;
+      transition: 0.75s;
+    }
+
+    .box a:hover{
+      background-color:#689bbd ;
+    }
+    
+    .hover-underline-animation {
     display: inline-block;
     position: relative;
-    color: #0087ca;
+    color: white;
   }
   
   .hover-underline-animation:after {
@@ -87,27 +126,15 @@ html {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #0087ca;
+    background-color: white;
     transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+    transition: transform 0.3s ease-out;
   }
   
   .hover-underline-animation:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
-
-img {
-  padding-top: 5px;
-  border-radius: 10px;
-}
-
-@media screen and (max-width: 650px) {
-  .column {
-    width: 100%;
-    display: block;
-  }
-}
 </style>
 <body>
     <div class="about-section">
@@ -116,27 +143,26 @@ img {
         <p>Do check responsiveness by resizing the browser window. Meh.</p>
       </div>
       
-      <center><h2 class="hover-underline-animation">Our Team</h2></center>
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <center><img src="https://avatars.githubusercontent.com/20pw01-Abishek" alt="Abishek" style="width:50%"></center>
+      <h2 class="hover-underline-animation">Our Team</h2></center>
+      <div class="main-box">
+          <div class="box">
+            <img src="https://avatars.githubusercontent.com/20pw01-Abishek" alt="Abishek" style="width:50%">
             <div class="container">
               <h2>Abishek-20PW01</h2>
               <p>A Softie.</p>
+              <hr>
               <p>Coding is my stressbuster</p>
               <p>20pw01@psgtech.ac.in</p>
-              <center><p><button class="button"><a style="text-decoration: none; color: white;" href="https://github.com/20pw01-Abishek">Contact</a></button></p></center>
+              <p><button class="button"><a style="text-decoration: none; color: white;" href="https://github.com/20pw01-Abishek">Contact</a></button></p></center>
             </div>
           </div>
-        </div>
-      
-        <div class="column">
-          <div class="card">
-            <center><img src="https://avatars.githubusercontent.com/tri-m" alt="Trisha" style="width:50%"></center>
+          
+          <div class="box">
+            <img src="https://avatars.githubusercontent.com/tri-m" alt="Trisha" style="width:50%">
             <div class="container">
               <h2>Trisha-20PW39</h2>
               <p class="title">Also a softie.</p>
+              <hr>
               <p>A hodophile, foodie and a sports freak.</p>
               <p>20pw39@psgtech.ac.in</p>
               <center><p><button class="button" ><a style="text-decoration: none; color: white;" href="https://github.com/tri-m">Contact</a></button></p></center>
