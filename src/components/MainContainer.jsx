@@ -10,8 +10,9 @@ import CartContainer from "./CartContainer";
 const MainContainer = () => {
   const [{ foodItems, cartShow }, dispatch] = useStateValue();
   const [scrollValue, setScrollValue] = useState(0);
+  const [directionChange, setDirectionChange] = useState(false);
 
-  useEffect(() => {}, [scrollValue, cartShow]);
+  useEffect(() => { }, [scrollValue, cartShow]);
 
   return (
     <div className="w-full h-auto flex flex-col items-center justify-center ">
@@ -27,14 +28,28 @@ const MainContainer = () => {
             <motion.div
               whileTap={{ scale: 2 }}
               className="w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer  hover:shadow-lg flex items-center justify-center"
-              onClick={() => setScrollValue(-200)}
+              onClick={() => {
+                if (directionChange) {
+                  setDirectionChange(false);
+                  setScrollValue(-30);
+                } else {
+                  setScrollValue(scrollValue - (30));
+                }
+              }}
             >
               <MdChevronLeft className="text-lg text-white" />
             </motion.div>
             <motion.div
               whileTap={{ scale: 2 }}
               className="w-8 h-8 rounded-lg bg-blue-300 hover:bg-blue-500 cursor-pointer transition-all duration-100 ease-in-out hover:shadow-lg flex items-center justify-center"
-              onClick={() => setScrollValue(200)}
+              onClick={() => {
+                if (!directionChange) {
+                  setDirectionChange(true);
+                  setScrollValue(0 + 30);
+                } else {
+                  setScrollValue(scrollValue + (30));
+                }
+              }}
             >
               <MdChevronRight className="text-lg text-white" />
             </motion.div>
