@@ -72,12 +72,14 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
+      scale: 1.2;
     }
 
     .box:hover::before{
       width: 95%;
       height: 95%;
       transition: all ease .50s;
+      scale: 1.2;
     }
 
     .box .icon{
@@ -113,8 +115,8 @@
       text-align: center;
       margin: 0;
       width: 100%;
-      background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
-      color: white;
+      background-image: linear-gradient(rgb(213, 233, 249), rgb(230, 236, 244));
+      color: rgb(15, 5, 127);
     }
 
     .ourBranches{
@@ -136,6 +138,7 @@
     }
     .box a:hover{
       background-color:#243238 ;
+      scale: 1.2;
     }
 
     .box .white-border{
@@ -146,28 +149,49 @@
       background-color:#404044 ;
     }
 
-    .box-red{
-      background-color:#7ec7f1;
+    .box-blue{
+      background-color:#3395CE;
+    }
+
+    .header
+    {
+      position:fixed;
+      z-index: 1;
+      width: 100%;
+      padding: 3px;
+      padding-left: 3px;
+      background-color: rgb(213, 233, 249);
+      opacity:70%;
+      /* "fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-blue-50 bg-opacity-80 drop-shadow-md hover:bg-blue-100 hover:bg-opacity-80" */
+    }
+    .header:hover{
+      background-color: rgb(213, 233, 249);
+      opacity: 100%;
+      scale: 1.2;
+
     }
   </style>
 
   <body>
     <div class="container">
       <div class="about-section">
-        <h1>Services</h1>
+        <div class="header">
+          <h1>Services</h1>
         <p>We offer you pretty much everything.</p>
-        <button onclick="showMap()"><h3 style="color: white; cursor: pointer;"><u>Our branches@</u></h3></button>
+        </div>
+        <br><br><br><br><br><br>
+        <button onclick="showMap()"><h1 style="color: rgb(54, 19, 178) ;cursor: pointer; opacity: 80%;"><u>Our branches</u></h1></button>
       </div>
       <br><br><br>
       <div style="margin-bottom: 50px; text-align: center;" id="ek" class="ourBranches">
-          <h2 style="text-align: center; color: rgb(0, 0, 119);">Our branches@</h2>
+          <h2 style="text-align: center; color: rgb(0, 0, 119);">Our Branches</h2>
           <div  class="ourBranches">
-            <div style="padding: 1%; height: 500px;" class="box box-red" style="padding-top:5%;">
+            <div style="padding: 1%; height: 500px;" class="box box-blue" style="padding-top:5%;">
               <h3>Foodeasy Besant Nagar, Chennai.</h3>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1857162154984!2d76.99993861480299!3d11.024688692153317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1654662099216!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             
-            <div style="padding: 1%; height: 500px;" class="box box-red">
+            <div style="padding: 1%; height: 500px;" class="box box-blue">
               <h3>Foodeasy Peelamedu, Coimbatore.</h3>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62658.61205187147!2d76.97263665468098!3d11.026375414006537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582ef9523359%3A0xa1ebf8112c5c931a!2sPsg%20Institute%20Of%20Technology%20And%20Applied%20Research!5e0!3m2!1sen!2sin!4v1654685618509!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -184,7 +208,7 @@
           <a href="#">Read More</a>
         </div>
 
-        <div class="box box-red">
+        <div class="box box-blue">
           <div class="icon">
             <i class="fas fa-hamburger"></i>
           </div>
