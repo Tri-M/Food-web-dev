@@ -4,13 +4,13 @@ import {getFirestore} from "firebase/firestore";
 import {getStorage} from "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCw2fvAtdJ8ahKqWvdrMp5A3GPk-_lnfT0",
-    authDomain: "restaurantapp-d1fc0.firebaseapp.com",
-    databaseURL: "https://restaurantapp-d1fc0-default-rtdb.firebaseio.com",
-    projectId: "restaurantapp-d1fc0",
-    storageBucket: "restaurantapp-d1fc0.appspot.com",
-    messagingSenderId: "514111016508",
-    appId: "1:514111016508:web:01144fff28ca68cfe87d39"
+  apiKey: "AIzaSyDo4Ule6OW8vwpQCuYgq93dt1DtEJlNJSQ",
+  authDomain: "restaurantapp-e819c.firebaseapp.com",
+  databaseURL: "https://restaurantapp-e819c-default-rtdb.firebaseio.com",
+  projectId: "restaurantapp-e819c",
+  storageBucket: "restaurantapp-e819c.appspot.com",
+  messagingSenderId: "894882860131",
+  appId: "1:894882860131:web:3b1e87a4c4cc108c457c56"
   };
 
   const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
