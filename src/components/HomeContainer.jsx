@@ -41,7 +41,7 @@ const HomeContainer = () => {
           type="button"
           className="bg-gradient-to-br from-blue-400 to-blue-500 w-full md:w-auto px-4 py-2  rounded-lg hover:shadow-lg hover:scale-110 transition-all ease-in-out duration-100"
         >
-          Order Now
+         <a href="#menu">Order now</a>
         </button>
       </div>
       <div className="py-2 flex-1 flex items-center relative">

@@ -30,48 +30,13 @@ html {
   padding: 0 8px;
 }
 
-.card {
-  background-image: linear-gradient(
-    hsl(211, 100%, 50%),
-    hsl(194, 59%, 56%)
-  );
-  z-index: 1;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 5%;
-  color: black;
-  padding-top: 10px;
-  text-align: center;
-}
-
-.card::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(
-    
-    hsl(179, 100%, 30%)
-    hsl(194, 59%, 56%)
-  );
-  z-index: -1;
-  transition: opacity 1s linear;
-  opacity: 0;
-}
-
-.card:hover::before {
-  opacity: 1;
-}
-
 .about-section {
   padding: 5px;
-  text-align: center;
-  margin: 0;
-  width: 100%;
-  background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
-  color: white;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+      background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
+      color: white;
 }
 
 .container {
@@ -131,6 +96,11 @@ html {
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+img {
+  padding-top: 5px;
+  border-radius: 10px;
+}
 
 @media screen and (max-width: 650px) {
   .column {

@@ -120,7 +120,7 @@ const CartContainer = () => {
         <div className="w-full h-full flex flex-col items-center justify-center gap-6">
           <img src={EmptyCart} className="w-300" alt="" />
           <p className="text-xl text-textColor font-semibold">
-            Your Cart is empty ! Add some items !!
+            Your Cart is empty ! <br></br> Add some items !!
           </p>
         </div>
       )}
