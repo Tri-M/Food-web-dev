@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import NotFound from "../img/NotFound.svg";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 
 const RowContainer = ({ flag, data, scrollValue }) => {
   const rowContainer = useRef();
@@ -24,19 +27,24 @@ const RowContainer = ({ flag, data, scrollValue }) => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
+  // useEffect(() => {
+  //   rowContainer.current.scrollRight += scrollValue;
+  // }, [scrollValue]);
+
   useEffect(() => {
     addtocart();
   }, [items]);
 
   return (
-    <div
+    <div 
       ref={rowContainer}
-      className={`w-full flex items-center gap-3 my-12 scroll-smooth  ${
+      className={`w-full p-50 flex items-center gap-3 my-12 scroll-smooth  ${
         flag
           ? "overflow-x-scroll scrollbar-none"
           : "overflow-x-hidden flex-wrap justify-center"
       }`}
     >
+      
       {data && data.length > 0 ? (
         data.map((item) => (
           <div
