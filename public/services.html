@@ -1,159 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Services </title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous" />
   </head>
-
   <style>
+    body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-body{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+    button {
+        border: 0;
+        background: none;
+        -webkit-appearance: none;
+    }
 
-button {
-    border: 0;
-    background: none;
-    -webkit-appearance: none;
-}
+    .container{
+      width:100%;
+      margin: 0 auto;
+    }
 
-.container{
-  width:80%;
-  margin: 0 auto;
-}
+    .details{
+      text-align: center;
+    }
 
-.details{
-  text-align: center;
-}
+    .details h2{
+      color:#243238;
+      font-size:50px;
+      margin: 0;
+    }
 
-.details h2{
-  color:#243238;
-  font-size:50px;
-  margin: 0;
-}
+    .main-box{
+      display: flex;
+      justify-content: center;
+    }
 
-.main-box{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+    .box{
+      width: 300px;
+      height: 400px;
+      margin: 10px;
+      text-align: center;
+      padding: 40px 20px;
+      color: #ffffff;
+      position: relative;
+      z-index: 2;
+      border-radius: 5px;
+    }
 
-.box{
-  width: 300px;
-  height: 400px;
-  margin: 10px;
-  text-align: center;
-  padding: 40px 20px;
-  color: #ffffff;
-  position: relative;
-  z-index: 2;
-  border-radius: 5px;
+    .box > * {
+      position: relative;
+      z-index: 2;
+      color: #ffffff;
+    }
 
-}
-.box > * {
-  position: relative;
-  z-index: 2;
-  color: #ffffff;
-}
+    .box::before{
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(72, 139, 217, 0.47);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
 
-.box::before{
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border: 2px solid rgba(72, 139, 217, 0.47);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-}
+    .box:hover::before{
+      width: 95%;
+      height: 95%;
+      transition: all ease .50s;
+    }
 
-.box:hover::before{
-  width: 95%;
-  height: 95%;
-  transition: all ease .50s;
-}
+    .box .icon{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      text-align: center;
+      display: inline-block;
+      position: relative;
+    }
 
-.box .icon{
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #ffffff;
-  text-align: center;
-  display: inline-block;
-  position: relative;
-}
+    .box .icon .fas{
+      color: #404044;
+      font-size: 30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-.box .icon .fas{
-  color: #404044;
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+    hr{
+      margin-top: 25px;
+      margin-bottom: 25px;
+      display: block;
+      width: 70%;
+      border: 1px solid rgba(255,255,255, 0.1);
 
-hr{
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: block;
-  width: 70%;
-  border: 1px solid rgba(255,255,255, 0.1);
+    }
 
-}
+    .about-section {
+      padding: 5px;
+      text-align: center;
+      margin: 0;
+      width: 100%;
+      background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
+      color: white;
+    }
 
-.about-section {
-  padding: 5px;
-  text-align: center;
-  background-image: linear-gradient(rgb(23, 121, 170), rgb(90, 159, 238));
-  color: white;
-}
+    .ourBranches{
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
 
-.box a{
-  text-decoration: none;
-  color: #ffffff;
-  text-transform: uppercase;
-  background-color:#7ec7f1 ;
-  padding: 10px 25px;
-  border-radius: 25px;
-  margin-top: 25px;
-  display: inline-block;
-  font-weight: 600 ;
-}
-.box a:hover{
-  background-color:#243238 ;
-}
+    .box a{
+      text-decoration: none;
+      color: #ffffff;
+      text-transform: uppercase;
+      background-color:#7ec7f1 ;
+      padding: 10px 25px;
+      border-radius: 25px;
+      margin-top: 25px;
+      display: inline-block;
+      font-weight: 600 ;
+    }
+    .box a:hover{
+      background-color:#243238 ;
+    }
 
-.box .white-border{
-  border: 1px solid #ffffff;
-}
+    .box .white-border{
+      border: 1px solid #ffffff;
+    }
 
 
-.box-grey{
-  background-color:#404044 ;
-}
+    .box-grey{
+      background-color:#404044 ;
+    }
 
-.box-red{
-  background-color:#7ec7f1;
-}
-
+    .box-red{
+      background-color:#7ec7f1;
+    }
   </style>
 
   <body>
     <div class="container">
-        <div class="about-section">
-          <h1>Services</h1>
-          <p>We offer you pretty much everything.</p>
-          <button onclick="showMap()">Hello</button>
-        </div>
-          <br><br><br>
+      <div class="about-section">
+        <h1>Services</h1>
+        <p>We offer you pretty much everything.</p>
+        <button onclick="showMap()"><h3 style="color: white;"><u>Our branches@</u></h3></button>
+      </div>
+      <br><br><br>
+      <div style="margin-bottom: 50px;" id="ek">
+          <h2 style="text-align: center; color: rgb(0, 0, 119);">Our branches@</h2>
+          <div  class="ourBranches">
+            <div style="padding: 1%; height: 500px;" class="box box-red" style="padding-top:5%;">
+              <h3>Foodeasy Besant Nagar, Chennai.</h3>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1857162154984!2d76.99993861480299!3d11.024688692153317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1654662099216!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            
+            <div style="padding: 1%; height: 500px;" class="box box-red">
+              <h3>Foodeasy Peelamedu, Coimbatore.</h3>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62658.61205187147!2d76.97263665468098!3d11.026375414006537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582ef9523359%3A0xa1ebf8112c5c931a!2sPsg%20Institute%20Of%20Technology%20And%20Applied%20Research!5e0!3m2!1sen!2sin!4v1654685618509!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+      </div>
       <div class="main-box">
         <div class="box box-grey">
           <div class="icon">
@@ -184,17 +202,7 @@ hr{
           <p>Preparing food in bulk is our jam.</p>
           <a href="#">Read More</a>
         </div>
-        <div>
-        <h2>Our branches@</h2>
-          <div class="box box-red" id="ek">
-            <div></div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1857162154984!2d76.99993861480299!3d11.024688692153317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1654662099216!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          
-          <div class="box box-red" id="ek">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62658.61205187147!2d76.97263665468098!3d11.026375414006537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582ef9523359%3A0xa1ebf8112c5c931a!2sPsg%20Institute%20Of%20Technology%20And%20Applied%20Research!5e0!3m2!1sen!2sin!4v1654685618509!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-        </div>
+        
       </div>
     </div>
     <script>

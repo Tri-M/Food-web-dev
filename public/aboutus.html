@@ -8,9 +8,11 @@
     <title>About us</title>
 </head>
 <style>
-    body {
+body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
+  position: fixed;
+  width: 100%;
 }
 
 html {
@@ -29,27 +31,46 @@ html {
 }
 
 .card {
+  background-image: linear-gradient(
+    hsl(211, 100%, 50%),
+    hsl(194, 59%, 56%)
+  );
+  z-index: 1;
   border-radius: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 5%;
-  background-color: rgb(223, 240, 255);
   color: black;
   padding-top: 10px;
-  transition: 1.5s;
   text-align: center;
 }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px 10px lightblue;
-  background-color: rgb(0, 42, 91);
-  color: white;
+.card::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    
+    hsl(179, 100%, 30%)
+    hsl(194, 59%, 56%)
+  );
+  z-index: -1;
+  transition: opacity 1s linear;
+  opacity: 0;
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 .about-section {
-  padding: 50px;
+  padding: 5px;
   text-align: center;
-  background-image: linear-gradient(rgb(0, 42, 91),rgb(84, 164, 255));
+  margin: 0;
+  width: 100%;
+  background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
   color: white;
 }
 
