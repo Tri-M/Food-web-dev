@@ -71,7 +71,7 @@ const RowContainer = ({ flag, data, scrollValue }) => {
               <p className="text-textColor font-semibold text-base md:text-lg">
                 {item?.title}
               </p>
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-600">
                 {item?.calories} Calories
               </p>
               <div className="flex items-center gap-8">
