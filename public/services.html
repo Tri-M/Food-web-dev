@@ -14,8 +14,7 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      position: absolute;
-      width: 100%;
+      overflow-x: hidden;
     }
 
     button {
@@ -42,6 +41,7 @@
     .main-box{
       display: flex;
       justify-content: center;
+      margin-bottom: 2%;
     }
 
     .box{
@@ -72,14 +72,11 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 1;
-      scale: 1.2;
     }
 
-    .box:hover::before{
-      width: 95%;
-      height: 95%;
-      transition: all ease .50s;
-      scale: 1.2;
+    .box:hover{
+      width: 44%;
+      transition: all ease 1s;
     }
 
     .box .icon{
@@ -115,14 +112,15 @@
       text-align: center;
       margin: 0;
       width: 100%;
-      background-image: linear-gradient(rgb(213, 233, 249), rgb(230, 236, 244));
-      color: rgb(15, 5, 127);
+      background-image: linear-gradient(rgb(19, 97, 135), rgb(90, 159, 238));
+      color: white;
+      box-shadow: 0 5px 10px rgb(90, 159, 238);
     }
 
     .ourBranches{
-      display: flex;
       width: 100%;
       justify-content: center;
+      display: flex;
     }
 
     .box a{
@@ -132,68 +130,76 @@
       background-color:#7ec7f1 ;
       padding: 10px 25px;
       border-radius: 25px;
-      margin-top: 25px;
+      margin-top: 10px;
       display: inline-block;
       font-weight: 600 ;
     }
+
     .box a:hover{
       background-color:#243238 ;
-      scale: 1.2;
     }
 
     .box .white-border{
-      border: 1px solid #ffffff;
+      border: 2px solid #ffffff;
     }
 
     .box-grey{
-      background-color:#404044 ;
+      background-color:#404044;
+      color: aquamarine;
     }
 
-    .box-blue{
-      background-color:#3395CE;
+    .box-red{
+      background-color:#7ec7f1;
+      color: black;
     }
+    
+    .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 
-    .header
-    {
-      position:fixed;
-      z-index: 1;
-      width: 100%;
-      padding: 3px;
-      padding-left: 3px;
-      background-color: rgb(213, 233, 249);
-      opacity:70%;
-      /* "fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-blue-50 bg-opacity-80 drop-shadow-md hover:bg-blue-100 hover:bg-opacity-80" */
-    }
-    .header:hover{
-      background-color: rgb(213, 233, 249);
-      opacity: 100%;
-      scale: 1.2;
-
-    }
   </style>
-
   <body>
     <div class="container">
       <div class="about-section">
-        <div class="header">
-          <h1>Services</h1>
+        <h1>Services</h1>
         <p>We offer you pretty much everything.</p>
-        </div>
-        <br><br><br><br><br><br>
-        <button onclick="showMap()"><h1 style="color: rgb(54, 19, 178) ;cursor: pointer; opacity: 80%;"><u>Our branches</u></h1></button>
+        <button class="hover-underline-animation" onclick="showMap()"><p style="color: white; font-size: 1.1rem; cursor: pointer;">Our branches@</p></button>
       </div>
-      <br><br><br>
-      <div style="margin-bottom: 50px; text-align: center;" id="ek" class="ourBranches">
-          <h2 style="text-align: center; color: rgb(0, 0, 119);">Our Branches</h2>
-          <div  class="ourBranches">
-            <div style="padding: 1%; height: 500px;" class="box box-blue" style="padding-top:5%;">
+      <br>
+      <div class="ourBranches" id="ek">
+          <h2 style="text-align: center; color: rgb(0, 0, 119);">Our branches@</h2>
+          <div class="main-box">
+            <div class="box box-red">
               <h3>Foodeasy Besant Nagar, Chennai.</h3>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.1857162154984!2d76.99993861480299!3d11.024688692153317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582f1435fa59%3A0x137d95bfd8909293!2sPSG%20College%20Of%20Technology!5e0!3m2!1sen!2sin!4v1654662099216!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            
-            <div style="padding: 1%; height: 500px;" class="box box-blue">
+            <div class="box box-grey">
               <h3>Foodeasy Peelamedu, Coimbatore.</h3>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62658.61205187147!2d76.97263665468098!3d11.026375414006537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8582ef9523359%3A0xa1ebf8112c5c931a!2sPsg%20Institute%20Of%20Technology%20And%20Applied%20Research!5e0!3m2!1sen!2sin!4v1654685618509!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="box box-red">
+              <h3>Foodeasy Airport, Kovilpatti.</h3>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.073572841961!2d77.03357509285176!3d11.033106886119842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba858526b5c0591%3A0x6c452206816788d4!2sPSG%20College%20of%20Arts%20%26%20Science!5e0!3m2!1sen!2sin!4v1654701746167!5m2!1sen!2sin" width="85%" height="80%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
       </div>
@@ -208,7 +214,7 @@
           <a href="#">Read More</a>
         </div>
 
-        <div class="box box-blue">
+        <div class="box box-red">
           <div class="icon">
             <i class="fas fa-hamburger"></i>
           </div>
@@ -231,9 +237,14 @@
       </div>
     </div>
     <script>
-      document.getElementById("ek").style.display="none";
+      var x = document.getElementById("ek");
+      x.style.display="none"
       function showMap() {
-        document.getElementById("ek").style.display="inline-block";
+        if(x.style.display==="none") {
+          x.style.display="inline-block";
+        } else {
+          x.style.display="none";
+        }
       }
     </script>
   </body>
