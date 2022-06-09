@@ -54,12 +54,14 @@
       position: relative;
       z-index: 2;
       border-radius: 5px;
+      border-color: #ffffff;
     }
 
     .box > * {
       position: relative;
       z-index: 2;
       color: #ffffff;
+      border-color: #ffffff;
     }
 
     .box::before{
@@ -67,7 +69,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 2px solid rgba(72, 139, 217, 0.47);
+      border: 2px solid rgb(255, 255, 255);
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -149,7 +151,7 @@
     }
 
     .box-red{
-      background-color:#65B8E8;
+      background-color:#28A2E9;
       color: black;
     }
     
@@ -185,7 +187,7 @@
         <p><h2>We offer you pretty much everything.</h2></p>
         <button class="hover-underline-animation" onclick="showMap()"><p style="color: white; font-size: 1.1rem; cursor: pointer;">Where can you find us?</p></button>
       </div>
-      <br>
+      <br><br><br>
       <div class="ourBranches" id="ek">
           <h2 style="text-align: center; color: rgb(0, 0, 119);">Our branches@</h2>
           <div class="main-box">
@@ -210,7 +212,7 @@
           </div>
           <h2>Door Delivery</h2>
           <hr>
-          <p>Fastest Delivery in the city.</p>
+          <p><h3>Fastest Delivery in the city.</h3></p>
           <a href="#">Read More</a>
         </div>
 
@@ -220,7 +222,7 @@
           </div>
           <h2>Party Orders</h2>
           <hr>
-          <p>Hosting a party? Don't hesitate!</p>
+          <p><h3>Hosting a party? Don't hesitate!</h3></p>
           <a href="#" class="white-border">Read More</a>
         </div>
         
@@ -230,12 +232,19 @@
           </div>
           <h2>Catering</h2>
           <hr>
-          <p>Preparing food in bulk is our jam.</p>
+          <p><h3>Preparing food in bulk is our jam.</h3></p>
           <a href="#">Read More</a>
         </div>
         
       </div>
+      <br><br>
+      <center>
+        <div>
+          <a href="http://localhost:3000/"><b class="box" style="color: #404044; border:white; border-radius: 20px; padding: 20px; align-items: center; width: auto;background-color: #65B8E8; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: none; font: weight 500px;">Home</b></a>
+        </div>
+        </center>
     </div>
+
     <script>
       var x = document.getElementById("ek");
       x.style.display="none"

@@ -74,10 +74,10 @@ const Header = () => {
               <a href="#menu">Menu</a>
             </li>
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="aboutus.html">About Us</a>
+              <a href="http://localhost:3000/aboutus.html" target="_blank">About Us</a>
             </li>
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="services.html">Services</a>
+              <a href="http://localhost:3000/services.html" target="_blank">Services</a>
             </li>
           </motion.ul>
 
