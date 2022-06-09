@@ -10,7 +10,7 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-
+import aboutus from "./aboutus";
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -74,10 +74,11 @@ const Header = () => {
               <a href="#menu">Menu</a>
             </li>
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="http://localhost:3000/aboutus.html" target="_blank">About Us</a>
-            </li>
+              <Link to="/aboutus" >About us </Link>              
+              </li>
+              
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="http://localhost:3000/services.html" target="_blank">Services</a>
+              <a href="http://localhost:3000/services.html">Services</a>
             </li>
           </motion.ul>
 
@@ -110,7 +111,7 @@ const Header = () => {
                 exit={{ opacity: 0, scale: 0.6 }}
                 className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
               >
-                {user && user.email === "vetrivel.galaxy@gmail.com" && (
+                {user && user.email === "trisham9102002@gmail.com" && (
                   <Link to={"/createItem"}>
                     <p
                       className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base"
@@ -151,7 +152,7 @@ const Header = () => {
 
         <Link to={"/"} className="flex items-center gap-2">
           <img src={Logo} className="w-8 object-cover" alt="logo" />
-          <p className="text-headingColor text-xl font-bold"> City</p>
+          <p className="text-headingColor text-xl font-bold"> FoodEasy</p>
         </Link>
 
         <div className="relative">
@@ -169,7 +170,7 @@ const Header = () => {
               exit={{ opacity: 0, scale: 0.6 }}
               className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0"
             >
-              {user && user.email === "trisham0910@gmail.com" && (
+              {user && user.email === "trisham9102002@gmail.com" && (
                 <Link to={"/createItem"}>
                   <p className="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-slate-100 transition-all duration-100 ease-in-out text-textColor text-base">
                     New Item <MdAdd />

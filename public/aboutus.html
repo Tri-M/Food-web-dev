@@ -70,6 +70,14 @@
       border: 1px solid #000;
     }
 
+    .box:hover {
+      color: white;
+    }
+
+    .box a{
+      color: #000;
+    }
+
     .box:hover a {
       text-decoration: none;
       text-transform: uppercase;
@@ -78,6 +86,7 @@
       border-radius: 25px;
       margin-top: 10px;
       display: inline-block;
+      color: white;
       font-weight: 600 ;
     }
 
@@ -109,14 +118,15 @@
     }
 
     .box a:hover{
-      background-color:#689bbd ;
+      background-color:#689bbd;
+      color: #000;
     }
     
     .hover-underline-animation {
-    display: inline-block;
-    position: relative;
-    color: white;
-  }
+      display: inline-block;
+      position: relative;
+      color: white;
+    }
   
   .hover-underline-animation:after {
     content: '';
@@ -135,6 +145,21 @@
     transform: scaleX(1);
     transform-origin: bottom left;
   }
+
+  .homme {
+    color: #404044;
+    border:white;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+    width: auto;
+    background-color: #65B8E8;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    font: weight 500px;
+  }
+
+
 </style>
 <body bgcolor="#B5E1FB">
     <div class="about-section">
@@ -153,7 +178,7 @@
               <hr>
               <p>Coding is my stressbuster</p>
               <p>20pw01@psgtech.ac.in</p>
-              <p><button class="button"><a style="text-decoration: none; color: rgb(0, 0, 0);" href="https://github.com/20pw01-Abishek">Contact</a></button></p></center>
+              <p><button class="button"><a style="text-decoration: none;" href="https://github.com/20pw01-Abishek">Contact</a></button></p></center>
             </div>
           </div>
           
@@ -172,7 +197,7 @@
         <br><br>
         <center>
           <div>
-            <a href="http://localhost:3000/"><b class="box" style="color: #404044; border:white; border-radius: 20px; padding: 20px; align-items: center; width: auto;background-color: #65B8E8; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; text-decoration: none; font: weight 500px;">Home</b></a>
+            <a href="http://localhost:3000/" class="box homme">Home</a>
           </div>
           </center>
       </div>
