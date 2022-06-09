@@ -10,7 +10,7 @@ import Avatar from "../img/avatar.png";
 import { Link } from "react-router-dom";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
-import aboutus from "./aboutus";
+
 const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
@@ -74,11 +74,11 @@ const Header = () => {
               <a href="#menu">Menu</a>
             </li>
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-            <a href="http://localhost:3000/aboutus.html">About us</a>          
+            <a href="https://20pw01-abishek.github.io/aboutus/">About us</a>          
               </li>
               
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <a href="http://localhost:3000/services.html">Services</a>
+              <a href="https://20pw01-abishek.github.io/services/">Services</a>
             </li>
           </motion.ul>
 
