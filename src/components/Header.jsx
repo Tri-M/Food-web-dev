@@ -74,7 +74,7 @@ const Header = () => {
               <a href="#menu">Menu</a>
             </li>
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
-              <Link to="/aboutus" >About us </Link>              
+            <a href="http://localhost:3000/aboutus.html">About us</a>          
               </li>
               
             <li className="hover-underline-animation text-lg text-textColor hover:text-sky-700 duration-100 transition-all ease-in-out cursor-pointer">
