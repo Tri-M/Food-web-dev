@@ -18,3 +18,8 @@ for scrollbar : npm i tailwind-scrollbar
 If you are using yarn, 
 use :
 yarn add firebase framer-motion react-icons react-router-dom
+
+
+
+
+
