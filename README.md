@@ -21,5 +21,4 @@ yarn add firebase framer-motion react-icons react-router-dom
 
 
 
-
-
+View @ https://foodeasyrest.herokuapp.com/
