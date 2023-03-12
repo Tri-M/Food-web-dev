@@ -27,8 +27,8 @@ const CreateItem = () => {
     uploadTask.on(
       "state_changed",
       (snapshot) => {
-        const uploadProgress =
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        // const uploadProgress =
+          // (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       },
       (error) => {
         console.log(error);

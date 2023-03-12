@@ -25,9 +25,6 @@ const RowContainer = ({ flag, data, scrollValue }) => {
     rowContainer.current.scrollLeft += scrollValue;
   }, [scrollValue]);
 
-  // useEffect(() => {
-  //   rowContainer.current.scrollRight += scrollValue;
-  // }, [scrollValue]);
 
   useEffect(() => {
     addtocart();
